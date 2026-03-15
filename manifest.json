@@ -2,19 +2,25 @@
   "name": "GrindLog — Training Tracker",
   "short_name": "GrindLog",
   "description": "Personal bodyweight training tracker — PPL split, PRs, progressive overload",
-  "start_url": "/index.html",
+  "start_url": "/GrindLog/",
+  "scope": "/GrindLog/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#0f0f0f",
   "theme_color": "#0f0f0f",
   "icons": [
     {
-      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KICA8cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjEwMCIgZmlsbD0iIzBmMGYwZiIvPgogIDx0ZXh0IHg9IjE4OCIgeT0iMzAwIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2ssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMDAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiNjOGY1NDIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGRvbWluYW50LWJhc2VsaW5lPSJtaWRkbGUiPkc8L3RleHQ+CiAgPHRleHQgeD0iMzQwIiB5PSIzMDAiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIwMCIgZm9udC13ZWlnaHQ9IjkwMCIgZmlsbD0iI2U4ZThlOCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+TDwvdGV4dD4KICA8cmVjdCB4PSI1NiIgeT0iMzU2IiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjEwIiByeD0iNCIgZmlsbD0iI2M4ZjU0MiIgb3BhY2l0eT0iMC40Ii8+CiAgPHRleHQgeD0iMjU2IiB5PSI0MDAiIGZvbnQtZmFtaWx5PSJBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iNDAwIiBmaWxsPSIjNDQ0NDQ0IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMTAiPkdSSU5ETE9HPC90ZXh0Pgo8L3N2Zz4=",
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["health", "fitness"],
-  "prefer_related_applications": false
+  "categories": ["health", "fitness"]
 }
