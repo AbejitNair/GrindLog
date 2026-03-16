@@ -602,13 +602,13 @@ const P={
     ]},
     {name:'Biceps',tag:'biceps',exercises:[
       {name:'Chin-Ups (Close Grip)',sets:3,reps:'6–12',rest:'90–180s',notes:'Supinated grip. Full dead hang at bottom.'},
-      {name:'Backpack Curls with EA',sets:3,reps:'10–15',rest:'90–180s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
-      {name:'Backpack Hammer Curls with EA',sets:3,reps:'10–15',rest:'90–180s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
+      {name:'Backpack Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
+      {name:'Backpack Hammer Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
     ]},
     {name:'Forearms',tag:'forearms',exercises:[
       {name:'Towel Pull-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Drape towel over bar. Grip both ends tightly.'},
-      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Balances pulling work. Injury prevention.'},
       {name:'Dead Hangs',sets:3,reps:'30–60s',rest:'90–180s',notes:'Passive grip endurance. Spinal decompression.'},
+      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Balances pulling work. Injury prevention.'},
     ]},
   ]},
   WED:{label:'Legs 1',type:'legs',color:'var(--legs-col)',muscles:[
@@ -646,13 +646,13 @@ const P={
     ]},
     {name:'Biceps',tag:'biceps',exercises:[
       {name:'Chin-Ups (Close Grip)',sets:3,reps:'6–12',rest:'90–180s',notes:'Supinated grip. Full dead hang at bottom.'},
-      {name:'Backpack Curls with EA',sets:3,reps:'10–15',rest:'90–180s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
-      {name:'Backpack Hammer Curls with EA',sets:3,reps:'10–15',rest:'90–180s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
+      {name:'Backpack Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
+      {name:'Backpack Hammer Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
     ]},
     {name:'Forearms',tag:'forearms',exercises:[
       {name:'Towel Pull-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Drape towel over bar. Grip both ends tightly.'},
-      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Balances pulling work. Injury prevention.'},
       {name:'Dead Hangs',sets:3,reps:'30–60s',rest:'90–180s',notes:'Passive grip endurance. Spinal decompression.'},
+      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Balances pulling work. Injury prevention.'},
     ]},
   ]},
   SAT:{label:'Legs 2',type:'legs',color:'var(--legs-col)',muscles:[
@@ -1919,7 +1919,7 @@ renderGrid();renderSA();
 // ── PWA: SERVICE WORKER + INSTALL PROMPT ──────────────────────────────────────
 if('serviceWorker' in navigator){
   window.addEventListener('load',()=>{
-    navigator.serviceWorker.register('sw.js')
+    navigator.serviceWorker.register('service-worker.js')
       .then(()=>console.log('GrindLog SW registered'))
       .catch(e=>console.log('SW registration failed:',e));
   });
