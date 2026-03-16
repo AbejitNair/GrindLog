@@ -469,7 +469,7 @@ canvas.ex-chart{display:block;width:100%;max-height:200px}
       <div class="prog-day-hdr" onclick="togDay('warmup')" style="border-bottom:none">
         <div>
           <div class="prog-day-title" style="color:var(--accent)">🔥 Warm-Up</div>
-          <div class="prog-day-meta">Every day · 10 exercises · ~5 minutes</div>
+          <div class="prog-day-meta">Every day · 7 exercises · ~4 minutes</div>
         </div>
         <span class="prog-day-chev">▾</span>
       </div>
@@ -527,11 +527,11 @@ canvas.ex-chart{display:block;width:100%;max-height:200px}
 <!-- REST TIMER -->
 <div class="timer-overlay hidden" id="timerOverlay">
   <div class="timer-label">REST TIMER</div>
-  <div class="timer-display" id="timerDisplay">1:30</div>
+  <div class="timer-display" id="timerDisplay">1:00</div>
   <div class="timer-btns">
+    <button class="timer-btn" onclick="setTimer(60)" id="tb60">60s</button>
+    <button class="timer-btn" onclick="setTimer(75)" id="tb75">75s</button>
     <button class="timer-btn" onclick="setTimer(90)" id="tb90">90s</button>
-    <button class="timer-btn" onclick="setTimer(135)" id="tb135">135s</button>
-    <button class="timer-btn" onclick="setTimer(180)" id="tb180">180s</button>
     <button class="timer-btn" onclick="pauseTimer()">⏸</button>
     <button class="timer-btn" onclick="closeTimer()">✕</button>
   </div>
@@ -579,101 +579,101 @@ canvas.ex-chart{display:block;width:100%;max-height:200px}
 const P={
   MON:{label:'Push 1',type:'push',color:'var(--push-col)',muscles:[
     {name:'Chest',tag:'chest',exercises:[
-      {name:'Chest Dips',sets:3,reps:'8–12',rest:'90–180s',notes:'Lean 30–45° forward. Add backpack when easy.'},
-      {name:'Archer Push-Ups',sets:3,reps:'8–12 ea',rest:'90–180s',notes:'Full stretch on working side. Control eccentric.'},
-      {name:'Decline Push-Ups',sets:3,reps:'15–20',rest:'90–180s',notes:'Feet on chair/table. 3-sec descent.'},
+      {name:'Chest Dips',sets:3,reps:'8–12',rest:'60–90s',notes:'Lean 30–45° forward. Add backpack when easy.'},
+      {name:'Archer Push-Ups',sets:3,reps:'8–12 ea',rest:'60–90s',notes:'Full stretch on working side. Control eccentric.'},
+      {name:'Decline Push-Ups',sets:3,reps:'15–20',rest:'60–90s',notes:'Feet on chair/table. 3-sec descent.'},
     ]},
     {name:'Shoulders',tag:'shoulders',exercises:[
-      {name:'Handstand Push-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Do elevated pike push-ups for progression towards HSPU. Wall assisted.'},
-      {name:'Pike Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Elevate feet higher each week progressively.'},
-      {name:'Backpack Lateral Raises',sets:3,reps:'15–20',rest:'90–180s',notes:'Critical for V-taper width. Strict form only.'},
+      {name:'Handstand Push-Ups',sets:3,reps:'6–10',rest:'60–90s',notes:'Do elevated pike push-ups for progression towards HSPU. Wall assisted.'},
+      {name:'Pike Push-Ups',sets:3,reps:'10–15',rest:'60–90s',notes:'Elevate feet higher each week progressively.'},
+      {name:'Backpack Lateral Raises',sets:3,reps:'15–20',rest:'60–90s',notes:'Critical for V-taper width. Strict form only.'},
     ]},
     {name:'Triceps',tag:'triceps',exercises:[
-      {name:'Tricep Dips',sets:3,reps:'8–12',rest:'90–180s',notes:'Torso fully upright — loads triceps not chest.'},
-      {name:'Diamond Push-Ups',sets:3,reps:'12–20',rest:'90–180s',notes:'Hands diamond under chest. Elbows tucked.'},
-      {name:'Bodyweight Tricep Extensions',sets:3,reps:'10–15',rest:'90–180s',notes:'Hands on chair. Deep stretch on long head.'},
+      {name:'Tricep Dips',sets:3,reps:'8–12',rest:'60–90s',notes:'Torso fully upright — loads triceps not chest.'},
+      {name:'Diamond Push-Ups',sets:3,reps:'12–20',rest:'60–90s',notes:'Hands diamond under chest. Elbows tucked.'},
+      {name:'Bodyweight Tricep Extensions',sets:3,reps:'10–15',rest:'60–90s',notes:'Hands on chair. Deep stretch on long head.'},
     ]},
   ]},
   TUE:{label:'Pull 1',type:'pull',color:'var(--pull-col)',muscles:[
     {name:'Back',tag:'back',exercises:[
-      {name:'Wide Grip Pull-Ups',sets:3,reps:'6–12',rest:'90–180s',notes:'Priority #1 for V-taper. Full dead hang every rep.'},
-      {name:'Gironda Sternum Pull-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Pull until sternum touches bar.'},
-      {name:'Tuck Front Lever Rows',sets:3,reps:'8–12',rest:'90–180s',notes:'Body horizontal, tucked. Best thickness builder.'},
+      {name:'Wide Grip Pull-Ups',sets:3,reps:'6–12',rest:'60–90s',notes:'Priority #1 for V-taper. Full dead hang every rep.'},
+      {name:'Gironda Sternum Pull-Ups',sets:3,reps:'6–10',rest:'60–90s',notes:'Pull until sternum touches bar.'},
+      {name:'Tuck Front Lever Rows',sets:3,reps:'8–12',rest:'60–90s',notes:'Body horizontal, tucked. Best thickness builder.'},
     ]},
     {name:'Biceps',tag:'biceps',exercises:[
-      {name:'Chin-Ups (Close Grip)',sets:3,reps:'6–12',rest:'90–180s',notes:'Supinated grip. Full dead hang at bottom.'},
-      {name:'Backpack Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
-      {name:'Backpack Hammer Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
+      {name:'Chin-Ups (Close Grip)',sets:3,reps:'6–12',rest:'60–90s',notes:'Supinated grip. Full dead hang at bottom.'},
+      {name:'Backpack Curls',sets:3,reps:'10–15',rest:'60–90s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
+      {name:'Backpack Hammer Curls',sets:3,reps:'10–15',rest:'60–90s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
     ]},
     {name:'Forearms',tag:'forearms',exercises:[
-      {name:'Towel Pull-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Drape towel over bar. Grip both ends tightly.'},
-      {name:'Dead Hangs',sets:3,reps:'30–60s',rest:'90–180s',notes:'Passive grip endurance. Spinal decompression.'},
-      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Balances pulling work. Injury prevention.'},
+      {name:'Towel Pull-Ups',sets:3,reps:'6–10',rest:'60–90s',notes:'Drape towel over bar. Grip both ends tightly.'},
+      {name:'Dead Hangs',sets:3,reps:'30–60s',rest:'60–90s',notes:'Passive grip endurance. Spinal decompression.'},
+      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'60–90s',notes:'Balances pulling work. Injury prevention.'},
     ]},
   ]},
   WED:{label:'Legs 1',type:'legs',color:'var(--legs-col)',muscles:[
     {name:'Legs',tag:'legs',exercises:[
-      {name:'Pistol Squats',sets:3,reps:'5–8 ea',rest:'90–180s',notes:'Highest skill demand — always first. Assisted OK.'},
-      {name:'Bulgarian Split Squats',sets:3,reps:'8–12 ea',rest:'90–180s',notes:'Deep quad + glute. Add backpack for load.'},
-      {name:'Nordic Hamstring Curls',sets:3,reps:'5–8',rest:'90–180s',notes:'Anchor feet under chair. Control the descent.'},
-      {name:'Single Leg RDLs',sets:2,reps:'10–12 ea',rest:'90–180s',notes:'Backpack in opposite hand. Hip crease back.'},
-      {name:'Jump Squats',sets:2,reps:'10–15',rest:'90–180s',notes:'Explosive power. Land softly. Full depth.'},
-      {name:'Calf Raises',sets:2,reps:'15–25',rest:'90–180s',notes:'Slow tempo. Full ROM. Pause at top.'},
+      {name:'Pistol Squats',sets:3,reps:'5–8 ea',rest:'60–90s',notes:'Highest skill demand — always first. Assisted OK.'},
+      {name:'Bulgarian Split Squats',sets:3,reps:'8–12 ea',rest:'60–90s',notes:'Deep quad + glute. Add backpack for load.'},
+      {name:'Nordic Hamstring Curls',sets:3,reps:'5–8',rest:'60–90s',notes:'Anchor feet under chair. Control the descent.'},
+      {name:'Single Leg RDLs',sets:2,reps:'10–12 ea',rest:'60–90s',notes:'Backpack in opposite hand. Hip crease back.'},
+      {name:'Jump Squats',sets:2,reps:'10–15',rest:'60–90s',notes:'Explosive power. Land softly. Full depth.'},
+      {name:'Calf Raises',sets:2,reps:'15–25',rest:'60–90s',notes:'Slow tempo. Full ROM. Pause at top.'},
     ]},
   ]},
   THU:{label:'Push 2',type:'push',color:'var(--push-col)',muscles:[
     {name:'Chest',tag:'chest',exercises:[
-      {name:'Chest Dips',sets:3,reps:'8–12',rest:'90–180s',notes:'Lean 30–45° forward. Add backpack when easy.'},
-      {name:'Archer Push-Ups',sets:3,reps:'8–12 ea',rest:'90–180s',notes:'Full stretch on working side. Control eccentric.'},
-      {name:'Decline Push-Ups',sets:3,reps:'15–20',rest:'90–180s',notes:'Feet on chair/table. 3-sec descent.'},
+      {name:'Chest Dips',sets:3,reps:'8–12',rest:'60–90s',notes:'Lean 30–45° forward. Add backpack when easy.'},
+      {name:'Archer Push-Ups',sets:3,reps:'8–12 ea',rest:'60–90s',notes:'Full stretch on working side. Control eccentric.'},
+      {name:'Decline Push-Ups',sets:3,reps:'15–20',rest:'60–90s',notes:'Feet on chair/table. 3-sec descent.'},
     ]},
     {name:'Shoulders',tag:'shoulders',exercises:[
-      {name:'Handstand Push-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Do elevated pike push-ups for progression towards HSPU. Wall assisted.'},
-      {name:'Pike Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Elevate feet higher each week progressively.'},
-      {name:'Backpack Lateral Raises',sets:3,reps:'15–20',rest:'90–180s',notes:'Critical for V-taper width. Strict form only.'},
+      {name:'Handstand Push-Ups',sets:3,reps:'6–10',rest:'60–90s',notes:'Do elevated pike push-ups for progression towards HSPU. Wall assisted.'},
+      {name:'Pike Push-Ups',sets:3,reps:'10–15',rest:'60–90s',notes:'Elevate feet higher each week progressively.'},
+      {name:'Backpack Lateral Raises',sets:3,reps:'15–20',rest:'60–90s',notes:'Critical for V-taper width. Strict form only.'},
     ]},
     {name:'Triceps',tag:'triceps',exercises:[
-      {name:'Tricep Dips',sets:3,reps:'8–12',rest:'90–180s',notes:'Torso fully upright — loads triceps not chest.'},
-      {name:'Diamond Push-Ups',sets:3,reps:'12–20',rest:'90–180s',notes:'Hands diamond under chest. Elbows tucked.'},
-      {name:'Bodyweight Tricep Extensions',sets:3,reps:'10–15',rest:'90–180s',notes:'Hands on chair. Deep stretch on long head.'},
+      {name:'Tricep Dips',sets:3,reps:'8–12',rest:'60–90s',notes:'Torso fully upright — loads triceps not chest.'},
+      {name:'Diamond Push-Ups',sets:3,reps:'12–20',rest:'60–90s',notes:'Hands diamond under chest. Elbows tucked.'},
+      {name:'Bodyweight Tricep Extensions',sets:3,reps:'10–15',rest:'60–90s',notes:'Hands on chair. Deep stretch on long head.'},
     ]},
   ]},
   FRI:{label:'Pull 2',type:'pull',color:'var(--pull-col)',muscles:[
     {name:'Back',tag:'back',exercises:[
-      {name:'Wide Grip Pull-Ups',sets:3,reps:'6–12',rest:'90–180s',notes:'Priority #1 for V-taper. Full dead hang every rep.'},
-      {name:'Gironda Sternum Pull-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Pull until sternum touches bar.'},
-      {name:'Tuck Front Lever Rows',sets:3,reps:'8–12',rest:'90–180s',notes:'Body horizontal, tucked. Best thickness builder.'},
+      {name:'Wide Grip Pull-Ups',sets:3,reps:'6–12',rest:'60–90s',notes:'Priority #1 for V-taper. Full dead hang every rep.'},
+      {name:'Gironda Sternum Pull-Ups',sets:3,reps:'6–10',rest:'60–90s',notes:'Pull until sternum touches bar.'},
+      {name:'Tuck Front Lever Rows',sets:3,reps:'8–12',rest:'60–90s',notes:'Body horizontal, tucked. Best thickness builder.'},
     ]},
     {name:'Biceps',tag:'biceps',exercises:[
-      {name:'Chin-Ups (Close Grip)',sets:3,reps:'6–12',rest:'90–180s',notes:'Supinated grip. Full dead hang at bottom.'},
-      {name:'Backpack Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
-      {name:'Backpack Hammer Curls',sets:3,reps:'10–15',rest:'90–180s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
+      {name:'Chin-Ups (Close Grip)',sets:3,reps:'6–12',rest:'60–90s',notes:'Supinated grip. Full dead hang at bottom.'},
+      {name:'Backpack Curls',sets:3,reps:'10–15',rest:'60–90s',notes:'Strict form. Full ROM. Peak contraction hold. Hits long head.'},
+      {name:'Backpack Hammer Curls',sets:3,reps:'10–15',rest:'60–90s',notes:'Neutral grip. Hits brachialis — pushes bicep up. Critical for arm thickness.'},
     ]},
     {name:'Forearms',tag:'forearms',exercises:[
-      {name:'Towel Pull-Ups',sets:3,reps:'6–10',rest:'90–180s',notes:'Drape towel over bar. Grip both ends tightly.'},
-      {name:'Dead Hangs',sets:3,reps:'30–60s',rest:'90–180s',notes:'Passive grip endurance. Spinal decompression.'},
-      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'90–180s',notes:'Balances pulling work. Injury prevention.'},
+      {name:'Towel Pull-Ups',sets:3,reps:'6–10',rest:'60–90s',notes:'Drape towel over bar. Grip both ends tightly.'},
+      {name:'Dead Hangs',sets:3,reps:'30–60s',rest:'60–90s',notes:'Passive grip endurance. Spinal decompression.'},
+      {name:'Fingertip Push-Ups',sets:3,reps:'10–15',rest:'60–90s',notes:'Balances pulling work. Injury prevention.'},
     ]},
   ]},
   SAT:{label:'Legs 2',type:'legs',color:'var(--legs-col)',muscles:[
     {name:'Legs',tag:'legs',exercises:[
-      {name:'Pistol Squats',sets:3,reps:'5–8 ea',rest:'90–180s',notes:'Highest skill demand — always first. Assisted OK.'},
-      {name:'Bulgarian Split Squats',sets:3,reps:'8–12 ea',rest:'90–180s',notes:'Deep quad + glute. Add backpack for load.'},
-      {name:'Nordic Hamstring Curls',sets:3,reps:'5–8',rest:'90–180s',notes:'Anchor feet under chair. Control the descent.'},
-      {name:'Single Leg RDLs',sets:2,reps:'10–12 ea',rest:'90–180s',notes:'Backpack in opposite hand. Hip crease back.'},
-      {name:'Jump Squats',sets:2,reps:'10–15',rest:'90–180s',notes:'Explosive power. Land softly. Full depth.'},
-      {name:'Calf Raises',sets:2,reps:'15–25',rest:'90–180s',notes:'Slow tempo. Full ROM. Pause at top.'},
+      {name:'Pistol Squats',sets:3,reps:'5–8 ea',rest:'60–90s',notes:'Highest skill demand — always first. Assisted OK.'},
+      {name:'Bulgarian Split Squats',sets:3,reps:'8–12 ea',rest:'60–90s',notes:'Deep quad + glute. Add backpack for load.'},
+      {name:'Nordic Hamstring Curls',sets:3,reps:'5–8',rest:'60–90s',notes:'Anchor feet under chair. Control the descent.'},
+      {name:'Single Leg RDLs',sets:2,reps:'10–12 ea',rest:'60–90s',notes:'Backpack in opposite hand. Hip crease back.'},
+      {name:'Jump Squats',sets:2,reps:'10–15',rest:'60–90s',notes:'Explosive power. Land softly. Full depth.'},
+      {name:'Calf Raises',sets:2,reps:'15–25',rest:'60–90s',notes:'Slow tempo. Full ROM. Pause at top.'},
     ]},
   ]},
   SUN:{label:'Abs',type:'abs',color:'var(--abs-col)',muscles:[
     {name:'Abs',tag:'abs',exercises:[
-      {name:'Dragon Flags',sets:3,reps:'5–8',rest:'90–180s',notes:'Anchor overhead. Rigid body. Slowest possible descent.'},
-      {name:'Ab Rollouts',sets:3,reps:'8–12',rest:'90–180s',notes:'Pike rollout on smooth floor. Full extension.'},
-      {name:'Hanging Leg Raises',sets:3,reps:'10–15',rest:'90–180s',notes:'Straight legs. No swinging. Toes to bar goal.'},
-      {name:'Hollow Body Hold',sets:3,reps:'20–40s',rest:'90–180s',notes:'Lower back to floor. Arms and legs extended.'},
-      {name:'L-Sits',sets:3,reps:'15–30s',rest:'90–180s',notes:'On parallel bars. Legs fully extended.'},
-      {name:'Side Plank Raises',sets:3,reps:'10–15 ea',rest:'90–180s',notes:'Full hip drop and raise. Controlled throughout.'},
-      {name:'Russian Twists',sets:3,reps:'15–20 ea',rest:'90–180s',notes:'Feet elevated. Slow rotation. Touch floor each side.'},
+      {name:'Dragon Flags',sets:3,reps:'5–8',rest:'60–90s',notes:'Anchor overhead. Rigid body. Slowest possible descent.'},
+      {name:'Ab Rollouts',sets:3,reps:'8–12',rest:'60–90s',notes:'Pike rollout on smooth floor. Full extension.'},
+      {name:'Hanging Leg Raises',sets:3,reps:'10–15',rest:'60–90s',notes:'Straight legs. No swinging. Toes to bar goal.'},
+      {name:'Hollow Body Hold',sets:3,reps:'20–40s',rest:'60–90s',notes:'Lower back to floor. Arms and legs extended.'},
+      {name:'L-Sits',sets:3,reps:'15–30s',rest:'60–90s',notes:'On parallel bars. Legs fully extended.'},
+      {name:'Side Plank Raises',sets:3,reps:'10–15 ea',rest:'60–90s',notes:'Full hip drop and raise. Controlled throughout.'},
+      {name:'Russian Twists',sets:3,reps:'15–20 ea',rest:'60–90s',notes:'Feet elevated. Slow rotation. Touch floor each side.'},
     ]},
   ]},
 };
@@ -763,6 +763,9 @@ function startDuration(){
       sessionDuration=Math.floor((Date.now()-sessionStartTime)/1000);
       el.textContent=fmtDur(sessionDuration);
     }
+    // Keep summary bar duration in sync if visible
+    const sumBar=document.getElementById('sumBar');
+    if(sumBar&&sumBar.style.display!=='none'&&SD)updSum();
   },1000);
   // Update button states
   const sb=document.getElementById('durStartBtn');
@@ -907,9 +910,6 @@ const WARMUP=[
   {name:'Leg Swings',                   detail:'Forward/back + side to side — hip flexor activation',          duration:'40s',   secs:40},
   {name:'Cat-Cow',                      detail:'Spine mobilisation — protects back in every movement',         duration:'30s',   secs:30},
   {name:'Hip Circles',                  detail:'Hip joint lubrication before any lower body work',             duration:'30s',   secs:30},
-  {name:'Scapular Push-Ups × 10',       detail:'Activates serratus anterior — protects shoulders in push & pull',duration:'~20s', secs:20},
-  {name:'Dead Hang',                    detail:'Decompresses spine, activates grip, primes pulling muscles',   duration:'20s',   secs:20},
-  {name:'Hollow Body Hold',             detail:'Pre-activates deep core — perfect before abs, pull and leg days',duration:'20s',  secs:20},
   {name:'Bodyweight Squat × 10',        detail:'Warms knees and ankles before leg work',                       duration:'~20s',  secs:20},
   {name:'Wrist Circles × 20',           detail:'Protects wrists during dips, push-ups and pull-ups',           duration:'20s',   secs:20},
 ];
@@ -936,7 +936,7 @@ function wuStart(i){
     updateWuDisplay(i);
     if(t.remaining<=0){
       clearInterval(t.interval);t.running=false;
-      vibrateIfPossible();
+      alertTimerDone();
       const disp=document.getElementById(`wuDisp_${i}`);
       if(disp){disp.textContent='Done!';disp.style.color='var(--accent)'}
       const sb=document.getElementById(`wuStart_${i}`);
@@ -1037,7 +1037,7 @@ function renderSA(){
   // Warm-up section — collapsible with per-exercise timers
   html+=`<div class="warmup-block" id="warmupBlock">
     <div class="warmup-hdr" onclick="toggleWarmup()">
-      <span class="warmup-title">🔥 Warm-Up <span style="font-size:11px;font-weight:400;color:var(--text3)">— 5 mins</span></span>
+      <span class="warmup-title">🔥 Warm-Up <span style="font-size:11px;font-weight:400;color:var(--text3)">— 4 mins</span></span>
       <span class="warmup-chev" id="warmupChev">▾</span>
     </div>
     <div class="warmup-body" id="warmupBody" style="display:none">
@@ -1216,10 +1216,13 @@ function nxtFocus(mi,ei,si){
 
 function updSum(){
   const stats=calcStats(CS);const prog=P[SD];
+  const durEl=document.getElementById('sessionDurDisplay');
+  const durSecs=sessionRunning?Math.floor((Date.now()-sessionStartTime)/1000):sessionDuration;
   document.getElementById('sumStats').innerHTML=`
     <div class="sum-stat"><div class="sum-val" style="color:${prog.color}">${stats.sets}</div><div class="sum-lbl">Sets</div></div>
     <div class="sum-stat"><div class="sum-val">${stats.reps}</div><div class="sum-lbl">Reps</div></div>
     <div class="sum-stat"><div class="sum-val" style="color:var(--push-col)">${stats.vol}</div><div class="sum-lbl">Vol (kg·r)</div></div>
+    <div class="sum-stat"><div class="sum-val" style="color:var(--text2)">${fmtDur(durSecs)}</div><div class="sum-lbl">Duration</div></div>
     <div class="sum-stat"><div class="sum-val" style="color:${prog.color}">${prog.label}</div><div class="sum-lbl">Session</div></div>`;
 }
 
@@ -1260,7 +1263,7 @@ function clearSession(){
 let timerInterval=null,timerSecs=90,timerRunning=false;
 function startTimer(){
   document.getElementById('timerOverlay').classList.remove('hidden');
-  setTimer(90);
+  setTimer(60);
 }
 function setTimer(secs){
   timerSecs=secs;timerRunning=true;
@@ -1270,12 +1273,12 @@ function setTimer(secs){
     if(!timerRunning)return;
     timerSecs--;
     updateTimerDisplay();
-    if(timerSecs<=0){clearInterval(timerInterval);timerRunning=false;vibrateIfPossible();showToast('Rest done! 💪')}
+    if(timerSecs<=0){clearInterval(timerInterval);timerRunning=false;alertTimerDone();showToast('Rest done! 💪')}
   },1000);
-  ['tb90','tb135','tb180'].forEach(id=>{
-    document.getElementById(id).classList.remove('active-t');
+  ['tb60','tb75','tb90'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.classList.remove('active-t');
   });
-  const map={90:'tb90',135:'tb135',180:'tb180'};
+  const map={60:'tb60',75:'tb75',90:'tb90'};
   if(map[secs])document.getElementById(map[secs]).classList.add('active-t');
 }
 function updateTimerDisplay(){
@@ -1287,6 +1290,32 @@ function updateTimerDisplay(){
 function pauseTimer(){timerRunning=!timerRunning}
 function closeTimer(){document.getElementById('timerOverlay').classList.add('hidden');clearInterval(timerInterval);timerRunning=false}
 function vibrateIfPossible(){try{navigator.vibrate&&navigator.vibrate([200,100,200])}catch{}}
+function playBeep(type='done'){
+  try{
+    const ac=new (window.AudioContext||window.webkitAudioContext)();
+    if(type==='done'){
+      // Three ascending beeps for "done"
+      [0,0.18,0.36].forEach((t,i)=>{
+        const o=ac.createOscillator(),g=ac.createGain();
+        o.connect(g);g.connect(ac.destination);
+        o.frequency.value=520+i*120;
+        o.type='sine';
+        g.gain.setValueAtTime(0.4,ac.currentTime+t);
+        g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+t+0.15);
+        o.start(ac.currentTime+t);o.stop(ac.currentTime+t+0.16);
+      });
+    } else {
+      // Single short beep for "warning"
+      const o=ac.createOscillator(),g=ac.createGain();
+      o.connect(g);g.connect(ac.destination);
+      o.frequency.value=880;o.type='sine';
+      g.gain.setValueAtTime(0.3,ac.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+0.12);
+      o.start();o.stop(ac.currentTime+0.13);
+    }
+  }catch(e){}
+}
+function alertTimerDone(){vibrateIfPossible();playBeep('done')}
 
 // ── EXERCISE HISTORY LOOKUP ───────────────────────────────────────────────────
 function showExHist(day,muscleName,exName){
@@ -1515,7 +1544,8 @@ function renderWeekly(){
     });
     if(!rows)return;
     const note=saved.notes?`<div style="font-size:11px;color:var(--text3);font-style:italic;padding:6px 10px;background:var(--bg2);border-top:1px solid var(--line)">📝 ${saved.notes}</div>`:'';
-    bhtml+=`<div class="bd-section"><div class="bd-title" style="color:${prog.color}">${DFULL[day]} — ${prog.label}</div><table class="bd-table"><thead><tr><th>Exercise</th><th>Muscle</th><th>Sets</th><th>Reps/Set</th><th>Total Reps</th><th>Volume</th></tr></thead><tbody>${rows}<tr class="tot"><td colspan="2">Session Total</td><td class="num">${totS}s</td><td class="num">—</td><td class="num">${totR}r</td><td class="num">${totV>0?totV+'kg·r':'—'}</td></tr></tbody></table>${note}</div>`;
+    const durStr=saved.duration?`<span style="font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);margin-left:10px">⏱ ${fmtDur(saved.duration)}</span>`:'';
+    bhtml+=`<div class="bd-section"><div class="bd-title" style="color:${prog.color}">${DFULL[day]} — ${prog.label}${durStr}</div><table class="bd-table"><thead><tr><th>Exercise</th><th>Muscle</th><th>Sets</th><th>Reps/Set</th><th>Total Reps</th><th>Volume</th></tr></thead><tbody>${rows}<tr class="tot"><td colspan="2">Session Total</td><td class="num">${totS}s</td><td class="num">—</td><td class="num">${totR}r</td><td class="num">${totV>0?totV+'kg·r':'—'}</td></tr></tbody></table>${note}</div>`;
   });
   document.getElementById('wkBreakdown').innerHTML=bhtml||`<div class="empty-state"><div class="empty-icon">📊</div><div class="empty-text">No sessions logged this week yet</div></div>`;
 }
